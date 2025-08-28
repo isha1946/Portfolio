@@ -79,7 +79,7 @@ export default function Certificates() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const [hoveredCard, setHoveredCard] = useState(null);
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   const categories = ['All', ...new Set(certificatesData.map(cert => cert.category))];
   const filteredCertificates = selectedCategory === 'All' 
