@@ -38,15 +38,23 @@ export default function Navigation() {
 
   // Close mobile menu when clicking outside or on link
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (isMobileMenuOpen && !event.target.closest('.mobile-menu-container')) {
-        setIsMobileMenuOpen(false);
-      }
-    };
+  const handleClickOutside = (event: MouseEvent) => {
+    const target = event.target as HTMLElement | null;
+    if (
+      isMobileMenuOpen &&
+      target &&
+      !target.closest('.mobile-menu-container')
+    ) {
+      setIsMobileMenuOpen(false);
+    }
+  };
 
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
-  }, [isMobileMenuOpen]);
+  document.addEventListener('click', handleClickOutside);
+  return () => {
+    document.removeEventListener('click', handleClickOutside);
+  };
+}, [isMobileMenuOpen]);
+
 
   // Prevent scroll when mobile menu is open
   useEffect(() => {
