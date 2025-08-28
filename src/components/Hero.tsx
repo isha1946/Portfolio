@@ -2,11 +2,15 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Download } from 'lucide-react';
 
 export default function Hero() {
   const scrollToProjects = () => {
     document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const downloadResume = () => {
+    window.open('https://drive.google.com/file/d/1k7w89d_NAtCMeL9R-36mah9qhVGi-zRy/view?usp=drive_link', '_blank');
   };
 
   return (
@@ -58,6 +62,27 @@ export default function Hero() {
           >
             Contact Me
           </a>
+        </motion.div>
+
+        {/* Resume Download Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.8 }}
+          className="mt-8 flex justify-center"
+        >
+          <motion.button
+            onClick={downloadResume}
+            whileHover={{ 
+              scale: 1.05,
+              boxShadow: "0 10px 25px -10px rgba(99, 102, 241, 0.5)"
+            }}
+            whileTap={{ scale: 0.97 }}
+            className="flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-full shadow-lg font-medium transition-all duration-300 hover:gap-3"
+          >
+            <Download size={18} />
+            Download Resume
+          </motion.button>
         </motion.div>
       </div>
 
