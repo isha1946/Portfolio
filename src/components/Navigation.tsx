@@ -39,10 +39,10 @@ export default function Navigation() {
   // Close mobile menu when clicking outside or on link
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (isMobileMenuOpen && !event.target.closest('.mobile-menu-container')) {
-        setIsMobileMenuOpen(false);
-      }
-    };
+  if (isMobileMenuOpen && !event.target.closest('.mobile-menu-container')) {
+    setIsMobileMenuOpen(false);
+  }
+};
 
     document.addEventListener('click', handleClickOutside);
     return () => document.removeEventListener('click', handleClickOutside);
