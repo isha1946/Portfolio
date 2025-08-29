@@ -70,13 +70,13 @@ export default function Navigation() {
     { name: 'Contact', href: '#contact' }
   ];
 
-  const handleNavClick = (href) => {
-    setIsMobileMenuOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const handleNavClick = (href: string) => {
+  setIsMobileMenuOpen(false);
+  const element = document.querySelector(href);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+};
 
   return (
     <motion.nav
