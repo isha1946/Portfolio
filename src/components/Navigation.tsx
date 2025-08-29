@@ -38,23 +38,15 @@ export default function Navigation() {
 
   // Close mobile menu when clicking outside or on link
   useEffect(() => {
-  const handleClickOutside = (event: MouseEvent) => {
-    const target = event.target as HTMLElement | null;
-    if (
-      isMobileMenuOpen &&
-      target &&
-      !target.closest('.mobile-menu-container')
-    ) {
-      setIsMobileMenuOpen(false);
-    }
-  };
+    const handleClickOutside = (event) => {
+      if (isMobileMenuOpen && !event.target.closest('.mobile-menu-container')) {
+        setIsMobileMenuOpen(false);
+      }
+    };
 
-  document.addEventListener('click', handleClickOutside);
-  return () => {
-    document.removeEventListener('click', handleClickOutside);
-  };
-}, [isMobileMenuOpen]);
-
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [isMobileMenuOpen]);
 
   // Prevent scroll when mobile menu is open
   useEffect(() => {
@@ -78,22 +70,26 @@ export default function Navigation() {
     { name: 'Contact', href: '#contact' }
   ];
 
-  const handleNavClick = (href: string) => {
-  setIsMobileMenuOpen(false);
-  const element = document.querySelector(href);
-  if (element instanceof HTMLElement) {
-    element.scrollIntoView({ behavior: 'smooth' });
-  }
-};
-
+  const handleNavClick = (href) => {
+    setIsMobileMenuOpen(false);
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg py-3' : 'bg-transparent py-5'
+      className={`fixed w-full z-[9999] transition-all duration-300 ${
+        isScrolled ? 'bg-white shadow-lg py-3' : 'bg-white/95 backdrop-blur-sm py-5'
       }`}
+      style={{
+        WebkitBackfaceVisibility: 'hidden',
+        backfaceVisibility: 'hidden',
+        transform: 'translateZ(0)',
+      }}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo */}
@@ -137,11 +133,15 @@ export default function Navigation() {
 
         {/* Mobile menu button */}
         <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="md:hidden p-2 text-gray-700 hover:text-blue-600 transition-colors mobile-menu-container"
+          className="md:hidden p-3 text-gray-700 hover:text-blue-600 transition-colors mobile-menu-container relative z-[10000] bg-white/90 backdrop-blur-sm rounded-lg shadow-sm"
           aria-label="Toggle mobile menu"
+          style={{
+            WebkitTapHighlightColor: 'transparent',
+            touchAction: 'manipulation',
+          }}
         >
           <AnimatePresence mode="wait">
             {isMobileMenuOpen ? (
@@ -177,8 +177,13 @@ export default function Navigation() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden"
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9998] md:hidden"
             onClick={() => setIsMobileMenuOpen(false)}
+            style={{
+              WebkitBackfaceVisibility: 'hidden',
+              backfaceVisibility: 'hidden',
+              transform: 'translateZ(0)',
+            }}
           />
         )}
       </AnimatePresence>
@@ -192,11 +197,17 @@ export default function Navigation() {
             exit={{ x: '100%' }}
             transition={{ 
               type: 'spring', 
-              stiffness: 300, 
-              damping: 30,
-              duration: 0.4 
+              stiffness: 400, 
+              damping: 40,
+              duration: 0.3 
             }}
-            className="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-xl z-50 md:hidden mobile-menu-container"
+            className="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl z-[9999] md:hidden mobile-menu-container"
+            style={{
+              WebkitBackfaceVisibility: 'hidden',
+              backfaceVisibility: 'hidden',
+              transform: 'translateZ(0)',
+              willChange: 'transform',
+            }}
           >
             {/* Mobile menu header */}
             <div className="flex items-center justify-between p-6 border-b border-gray-200">
