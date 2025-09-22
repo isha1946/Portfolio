@@ -22,7 +22,7 @@ export default function Contact() {
     
     try {
       // Using FormSubmit service to handle form submissions
-      const response = await fetch("https://formsubmit.co/ajax/Rahulkumar201203@gmail.com", {
+      const response = await fetch("https://formsubmit.co/ajax/ishasingh1946@gmail.com", {
         method: "POST",
         headers: { 
           'Content-Type': 'application/json',
@@ -144,7 +144,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="font-medium">Email</p>
-                  <p>Rahulkumar201203@gmail.com</p>
+                  <p>ishasingh1946@gmail.com</p>
                 </div>
               </motion.div>
 
@@ -168,7 +168,7 @@ export default function Contact() {
               <h4 className="text-lg font-semibold text-white mb-4">Follow Me</h4>
               <div className="flex gap-4 flex-wrap">
                 <motion.a
-                  href="https://www.linkedin.com/in/rahul734779/"
+                  href="https://www.linkedin.com/in/ishasingh1946/"
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   className="p-3 bg-gray-800 rounded-lg hover:bg-blue-600 transition-colors"
@@ -180,7 +180,7 @@ export default function Contact() {
                 </motion.a>
                 
                 <motion.a
-                  href="https://github.com/R0ahulkd"
+                  href="https://github.com/isha1946"
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   className="p-3 bg-gray-800 rounded-lg hover:bg-blue-600 transition-colors"
