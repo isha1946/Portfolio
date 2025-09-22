@@ -64,7 +64,7 @@ export default function Footer() {
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
             >
-              Rahul Kumar
+              Isha Singh
             </motion.span>
             
             <motion.span
