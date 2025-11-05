@@ -172,8 +172,158 @@ export default function Certificates() {
               onHoverEnd={() => setHoveredCard(null)}
               className="bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-500 group relative overflow-hidden"
             >
-              {/* everything below stays unchanged */}
-              {/* ✅ No modifications to JSX, styles, animations, props */}
+
+              {/* ✅ CARD CONTENT FULLY RESTORED BELOW — DO NOT REMOVE */}
+
+              {/* Gradient overlay on hover */}
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-purple-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                animate={{
+                  opacity: hoveredCard === index ? 1 : 0
+                }}
+              />
+              
+              {/* Certificate Image/Icon */}
+              <div className="relative h-48 overflow-hidden rounded-t-2xl bg-gradient-to-br from-blue-100 to-purple-100">
+                <motion.div
+                  className="absolute inset-0 flex items-center justify-center text-6xl"
+                  animate={{
+                    scale: hoveredCard === index ? 1.2 : 1,
+                    rotate: hoveredCard === index ? 10 : 0
+                  }}
+                  transition={{ duration: 0.3 }}
+                >
+                  🎓
+                </motion.div>
+                
+                {/* Category badge */}
+                <motion.div
+                  initial={{ x: -100 }}
+                  animate={{ x: 0 }}
+                  transition={{ delay: index * 0.1 + 0.3 }}
+                  className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-gray-700"
+                >
+                  {certificate.category}
+                </motion.div>
+
+                {/* Floating elements */}
+                <motion.div
+                  className="absolute top-4 right-4 bg-blue-600 text-white p-2 rounded-lg shadow-lg"
+                  animate={{
+                    y: hoveredCard === index ? [-2, 2, -2] : [0],
+                    rotate: hoveredCard === index ? [0, 5, -5, 0] : 0
+                  }}
+                  transition={{ 
+                    duration: 2,
+                    repeat: hoveredCard === index ? Infinity : 0
+                  }}
+                >
+                  <Award size={16} />
+                </motion.div>
+              </div>
+
+              <div className="p-6 relative z-10">
+                {/* Certificate Title */}
+                <motion.h3 
+                  className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-700 transition-colors duration-300"
+                  animate={{
+                    x: hoveredCard === index ? 5 : 0
+                  }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {certificate.title}
+                </motion.h3>
+
+                {/* Issuer and Date */}
+                <div className="flex items-center justify-between mb-4">
+                  <motion.div 
+                    className="flex items-center text-gray-600"
+                    whileHover={{ x: 3 }}
+                  >
+                    <Building size={14} className="mr-2" />
+                    <span className="text-sm font-medium">{certificate.issuer}</span>
+                  </motion.div>
+                  
+                  <motion.div 
+                    className="flex items-center text-gray-500"
+                    whileHover={{ x: -3 }}
+                  >
+                    <Calendar size={14} className="mr-2" />
+                    <span className="text-sm">{certificate.date}</span>
+                  </motion.div>
+                </div>
+
+                {/* Description */}
+                <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                  {certificate.description}
+                </p>
+
+                {/* Skills Tags */}
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {certificate.skills.map((skill, skillIndex) => (
+                    <motion.span
+                      key={skill}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: index * 0.1 + skillIndex * 0.05 + 0.5 }}
+                      whileHover={{ 
+                        scale: 1.1,
+                        backgroundColor: "#3b82f6",
+                        color: "#ffffff"
+                      }}
+                      className="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full font-medium cursor-pointer"
+                    >
+                      {skill}
+                    </motion.span>
+                  ))}
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex space-x-3">
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors group/btn"
+                    onClick={() => window.open(certificate.verificationUrl, '_blank')}
+                  >
+                    <Eye size={16} />
+                    View Certificate
+                    <motion.span
+                      animate={{ x: hoveredCard === index ? 3 : 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <ChevronRight size={14} />
+                    </motion.span>
+                  </motion.button>
+
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="px-4 py-3 border border-gray-300 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors"
+                    onClick={() => window.open(certificate.verificationUrl, '_blank')}
+                  >
+                    <ExternalLink size={16} />
+                  </motion.button>
+                </div>
+
+                {/* Credential ID */}
+                <motion.div 
+                  className="mt-4 pt-4 border-t border-gray-100"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: index * 0.1 + 0.7 }}
+                >
+                  <span className="text-xs text-gray-500">
+                    Credential ID: <span className="font-mono">{certificate.credentialId}</span>
+                  </span>
+                </motion.div>
+              </div>
+
+              {/* Subtle border animation */}
+              <motion.div 
+                className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-blue-200 transition-all duration-300"
+                initial={false}
+              />
             </motion.div>
           ))}
         </motion.div>
@@ -181,7 +331,7 @@ export default function Certificates() {
         {/* Call to Action */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.8 }}
           className="text-center mt-16"
         >
