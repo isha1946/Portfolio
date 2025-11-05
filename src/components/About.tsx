@@ -3,6 +3,7 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import Image from 'next/image'; // ✅ Added
 
 export default function About() {
   const sectionRef = useRef(null);
@@ -38,6 +39,7 @@ export default function About() {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
           {/* Image/Visual Section */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -46,11 +48,18 @@ export default function About() {
             className="relative"
           >
             <div className="relative rounded-2xl overflow-hidden shadow-xl">
-              {/* Main image container */}
-              <div className="aspect-square bg-gradient-to-br from-blue-100 to-gray-100 rounded-2xl flex items-center justify-center">
-                <div className="text-6xl">👨‍💻</div>
+
+              {/* ✅ Replaced emoji with your photo using Next/Image */}
+              <div className="aspect-square bg-gradient-to-br from-blue-100 to-gray-100 rounded-2xl overflow-hidden flex items-center justify-center">
+                <Image
+                  src="/images/profile.jpg"
+                  alt="Isha Singh"
+                  width={500}
+                  height={500}
+                  className="object-cover w-full h-full"
+                />
               </div>
-              
+
               {/* Floating elements */}
               <motion.div
                 className="absolute -top-4 -right-4 bg-white p-3 rounded-lg shadow-lg"
