@@ -1,3 +1,4 @@
+// src/components/About.tsx
 'use client';
 
 import { motion, useInView } from 'framer-motion';
@@ -120,7 +121,7 @@ export default function About() {
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ delay: 1 }}
             >
-              <div class="text-center">
+              <div className="text-center">
                 <motion.div 
                   className="text-2xl font-bold text-blue-600 mb-2"
                   initial={{ scale: 0 }}
