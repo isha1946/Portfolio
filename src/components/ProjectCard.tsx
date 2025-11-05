@@ -1,157 +1,105 @@
-// src/components/ProjectCard.tsx
+// src/components/Projects.tsx
 'use client';
 
-import { motion } from 'framer-motion';
-import { ExternalLink, Github, ArrowRight } from 'lucide-react';
-import { useState } from 'react';
-import ProjectImage from './ProjectImage';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
+import ProjectCard from './ProjectCard';
 
-interface ProjectCardProps {
-  title: string;
-  description: string;
-  technologies: string[];
-  githubUrl: string;
-  liveUrl?: string;
-  imageUrl?: string;
-  index: number;
-}
+export default function Projects() {
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
-export default function ProjectCard({
-  title,
-  description,
-  technologies,
-  githubUrl,
-  liveUrl,
-  imageUrl,
-  index
-}: ProjectCardProps) {
-  const [isHovered, setIsHovered] = useState(false);
+  // ✅ ONLY THIS PART CHANGED — now only 2 project objects
+  const projects = [
+    {
+      title: "Emoji Sentiment Counter",
+      description:
+        "Machine learning based project that analyzes emoji usage to detect overall user sentiment and emotion patterns.",
+      technologies: ["Python", "NLP", "Sentiment Analysis", "Pandas"],
+      githubUrl: "https://github.com/",  // add real link if you want
+      liveUrl: "#",
+      imageUrl: "/projects/emoji.png",
+    },
+    {
+      title: "AI Enabled Chatbot",
+      description:
+        "AI-powered chatbot that helps users get information and register for events with intelligent conversational responses.",
+      technologies: ["Python", "Flask", "NLP", "Machine Learning"],
+      githubUrl: "https://github.com/",  // add real link if you want
+      liveUrl: "#",
+      imageUrl: "/projects/chatbot.png",
+    },
+  ];
+  // ✅ No other modifications
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ 
-        duration: 0.6, 
-        delay: index * 0.15,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }}
-      viewport={{ once: true, margin: "-50px" }}
-      whileHover="hover"
-      onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
-      className="bg-white rounded-lg border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group relative h-full flex flex-col"
-    >
-      {/* Gradient background effect on hover */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-gray-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-      
-      <div className="relative z-10 flex flex-col h-full">
-        {/* Project image with proper aspect ratio - using local placeholder for now */}
-        <ProjectImage 
-          src={imageUrl || ""} 
-          alt={title} 
-          index={index} 
-          isLocal={true} // Use local placeholder until you add your images
+    <section id="projects" ref={sectionRef} className="py-24 bg-gray-50 px-4 relative overflow-hidden">
+      {/* Animated background pattern */}
+      <div className="absolute inset-0 opacity-[0.02] z-0">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `linear-gradient(45deg, #000000 1px, transparent 1px),
+                             linear-gradient(-45deg, #000000 1px, transparent 1px)`,
+            backgroundSize: "60px 60px",
+          }}
         />
-        
-        <div className="p-6 flex-1 flex flex-col">
-          <motion.h3 
-            className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-blue-700 transition-colors duration-300"
-            variants={{
-              hover: { x: 2 }
-            }}
-          >
-            {title}
-          </motion.h3>
-          
-          <motion.p 
-            className="text-gray-600 mb-5 leading-relaxed flex-1"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: index * 0.15 + 0.2 }}
-            viewport={{ once: true }}
-          >
-            {description}
-          </motion.p>
-          
-          <motion.div 
-            className="flex flex-wrap gap-2 mb-6"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: index * 0.15 + 0.3 }}
-            viewport={{ once: true }}
-          >
-            {technologies.map((tech) => (
-              <motion.span
-                key={tech}
-                className="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-md font-medium"
-                whileHover={{ 
-                  scale: 1.05,
-                  backgroundColor: "#2563eb",
-                  color: "#fff"
-                }}
-                transition={{ duration: 0.2 }}
-              >
-                {tech}
-              </motion.span>
-            ))}
-          </motion.div>
-          
-          <motion.div 
-            className="flex space-x-3 pt-4 border-t border-gray-100 mt-auto"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: index * 0.15 + 0.4 }}
-            viewport={{ once: true }}
-          >
-            <motion.a
-              href={githubUrl}
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
-              className="flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-md text-sm font-medium group/github flex-1 justify-center"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Github size={14} />
-              Code
-              <motion.span
-                initial={{ x: 0 }}
-                animate={isHovered ? { x: 3 } : { x: 0 }}
-                transition={{ duration: 0.2 }}
-              >
-                <ArrowRight size={12} />
-              </motion.span>
-            </motion.a>
-            
-            {liveUrl && liveUrl !== "#" && (
-              <motion.a
-                href={liveUrl}
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
-                className="flex items-center gap-2 px-4 py-2 border border-gray-300 text-gray-700 rounded-md text-sm font-medium group/demo flex-1 justify-center"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <ExternalLink size={14} />
-                Live Demo
-                <motion.span
-                  initial={{ x: 0 }}
-                  animate={isHovered ? { x: 3 } : { x: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <ArrowRight size={12} />
-                </motion.span>
-              </motion.a>
-            )}
-          </motion.div>
-        </div>
       </div>
 
-      {/* Subtle border animation on hover */}
-      <motion.div 
-        className="absolute inset-0 rounded-lg border-2 border-transparent group-hover:border-blue-200 transition-all duration-300"
-        initial={false}
-      />
-    </motion.div>
+      <div className="container mx-auto max-w-6xl relative z-10">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <div className="inline-flex items-center justify-center relative mb-6">
+            <div className="w-2 h-2 rounded-full bg-blue-600 mr-3" />
+            <span className="text-sm uppercase tracking-widest text-blue-600 font-medium">Projects</span>
+            <div className="w-2 h-2 rounded-full bg-blue-600 ml-3" />
+          </div>
+
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Featured <span className="text-blue-600">Work</span>
+          </h2>
+
+          <div className="w-20 h-1 bg-blue-600 mx-auto mb-8" />
+
+          <p className="text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed">
+            Showcasing practical projects that highlight learning, creativity, and problem-solving abilities.
+          </p>
+        </motion.div>
+
+        {/* ✅ Project Cards Grid - unchanged */}
+        <motion.div
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.15,
+              },
+            },
+          }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          {projects.map((project, index) => (
+            <ProjectCard
+              key={project.title}
+              title={project.title}
+              description={project.description}
+              technologies={project.technologies}
+              githubUrl={project.githubUrl}
+              liveUrl={project.liveUrl}
+              imageUrl={project.imageUrl}
+              index={index}
+            />
+          ))}
+        </motion.div>
+      </div>
+    </section>
   );
 }
