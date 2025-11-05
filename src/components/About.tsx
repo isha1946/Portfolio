@@ -87,7 +87,7 @@ export default function About() {
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ delay: 0.6 }}
             >
-              Full-Stack Developer & AI Enthusiast
+              Data Science Enthusiast & AI Learner
             </motion.h3>
 
             <motion.div 
@@ -98,19 +98,19 @@ export default function About() {
             >
               <p>
                 I&apos;m a passionate MCA candidate at Lovely Professional University with a strong foundation in 
-                Computer Science and problem-solving. My focus is on creating intelligent, scalable solutions 
-                that bridge the gap between cutting-edge AI and robust software engineering.
+                Computer Science, Mathematics, and Data Analytics. My focus is on extracting insights from data, 
+                solving real-world problems, and building intelligent data-driven solutions.
               </p>
               
               <p>
-                I thrive on transforming complex ideas into elegant, functional applications. Whether it&apos;s 
-                developing AI-powered chatbots or building full-stack web applications, I&apos;m driven by the 
-                challenge of creating technology that makes a real impact.
+                I thrive on working with data — cleaning, visualizing, analyzing, and creating predictive models. 
+                Whether it&apos;s machine learning, statistical analysis, or AI-based applications, I enjoy turning raw 
+                data into meaningful outcomes that create impact.
               </p>
 
               <p>
-                When I&apos;m not coding, you can find me exploring the latest advancements in AI, contributing to 
-                open-source projects, or continuously expanding my technical skill set.
+                When I&apos;m not learning or experimenting with datasets, you can find me diving into new ML tools, 
+                exploring AI advancements, or continuously sharpening my analytical skills.
               </p>
             </motion.div>
 
@@ -121,7 +121,7 @@ export default function About() {
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ delay: 1 }}
             >
-              <div className="text-center">
+              <div class="text-center">
                 <motion.div 
                   className="text-2xl font-bold text-blue-600 mb-2"
                   initial={{ scale: 0 }}
@@ -130,7 +130,7 @@ export default function About() {
                 >
                   5+
                 </motion.div>
-                <div className="text-sm text-gray-600">Projects Completed</div>
+                <div className="text-sm text-gray-600">Data Projects Completed</div>
               </div>
               
               <div className="text-center">
@@ -142,7 +142,7 @@ export default function About() {
                 >
                   4+
                 </motion.div>
-                <div className="text-sm text-gray-600">Technologies Mastered</div>
+                <div className="text-sm text-gray-600">ML & Data Tools Mastered</div>
               </div>
             </motion.div>
           </motion.div>
