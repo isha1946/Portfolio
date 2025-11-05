@@ -192,7 +192,7 @@ export default function Contact() {
                 </motion.a>
 
                 <motion.a
-                  href="https://facebook.com/R0ahulkd2" // Replace with your Facebook URL
+                  href=" " // Replace with your Facebook URL
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   className="p-3 bg-gray-800 rounded-lg hover:bg-blue-600 transition-colors"
@@ -204,7 +204,7 @@ export default function Contact() {
                 </motion.a>
 
                 <motion.a
-                  href="https://instagram.com/r0ahulkd2" // Replace with your Instagram URL
+                  href=" " // Replace with your Instagram URL
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   className="p-3 bg-gray-800 rounded-lg hover:bg-blue-600 transition-colors"
@@ -216,7 +216,7 @@ export default function Contact() {
                 </motion.a>
 
                 <motion.a
-                  href="https://youtube.com/@rahulteachspot" // Replace with your YouTube URL
+                  href=" " // Replace with your YouTube URL
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   className="p-3 bg-gray-800 rounded-lg hover:bg-blue-600 transition-colors"
