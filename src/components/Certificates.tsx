@@ -14,7 +14,7 @@ const certificatesData = [
     description: "Learned Python fundamentals including variables, loops, functions, and basic data analysis.",
     skills: ["Python", "Loops", "Functions", "Pandas"],
     credentialId: "PYTHON-BASIC-123",
-    verificationUrl: "https://example.com/python-basic",
+    verificationUrl: "https://drive.google.com/file/d/1rfEFodatpvzAbm7rDJemntnSovwQfwSZ/view?usp=sharing",
     category: "Python",
     imageUrl: "/certificates/python-cert.jpg"
   },
@@ -25,7 +25,7 @@ const certificatesData = [
     description: "Gained foundational to intermediate knowledge of C++ including OOP, memory management, and problem-solving.",
     skills: ["OOP", "Data Structures & Algorithms", "Memory Management & Pointers"],
     credentialId: "28al4Bm1028d770N8",
-    verificationUrl: "https://drive.google.com/file/d/1AW5O5KG-N0fp3KMJy9Bhs84FWGUVjM6q/view?usp=sharing",
+    verificationUrl: "",
     category: "Software Development",
     imageUrl: "/certificates/springboot-cert.jpg"
   }
