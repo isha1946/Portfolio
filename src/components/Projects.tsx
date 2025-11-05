@@ -5,8 +5,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import ProjectCard from './ProjectCard';
 
-// Project data with proper image URLs
-// src/components/Projects.tsx (update the projectsData array)
+// ✅ ONLY this array changed → now contains 2 projects
 const projectsData = [
   {
     title: "AI-Enabled Chatbot for Event Registration",
@@ -14,23 +13,7 @@ const projectsData = [
     technologies: ["Java", "Spring Boot", "React", "MySQL", "OpenAI API"],
     githubUrl: "https://github.com/R0ahulkd/Ai-Enabled-Event",
     liveUrl: "https://drive.google.com/file/d/1Ih5IwIhjmUzGpQVaktBmgQvJOn6pX_3F/view?usp=drive_link",
-    imageUrl: "/projects/ai-chatbot-placeholder.png" // You can add this later
-  },
-  {
-    title: "Gemini Desktop Assistant",
-    description: "A powerful AI desktop assistant that integrates Google's Generative AI with screen capture and OCR capabilities.",
-    technologies: ["Python", "PyQt6", "OCR", "Google AI"],
-    githubUrl: "https://github.com/R0ahulkd/Gemini-Desktop-Assistant",
-    liveUrl: "https://drive.google.com/file/d/1ZPeBCvVm0K0_Ff0CeWr8eqzpXHwPpgYI/view?usp=drive_link",
-    imageUrl: "/projects/gemini-assistant.png" // Your actual image
-  },
-  {
-    title: "URL Shortener Web Application",
-    description: "A full-stack URL shortening platform with analytics, QR code generation, and user authentication.",
-    technologies: ["Django", "Python", "SQLite", "JavaScript", "Bootstrap"],
-    githubUrl: "https://github.com/R0ahulkd/URL_Shortner_Django-Web-Based-Application",
-    liveUrl: "https://my-urlshortener-sqlite.onrender.com",
-    imageUrl: "/projects/url-shortener-placeholder.png" // You can add this later
+    imageUrl: "/projects/ai-chatbot-placeholder.png"
   },
   {
     title: "Emoji Sentiment Counter",
@@ -38,7 +21,7 @@ const projectsData = [
     technologies: ["Python", "Pandas", "Data Visualization", "CSV Processing"],
     githubUrl: "https://github.com/R0ahulkd/Emoji-Sentiment-Counter",
     liveUrl: "https://github.com/R0ahulkd/Emoji-Sentiment-Counter",
-    imageUrl: "/projects/emoji-counter-placeholder.png" // You can add this later
+    imageUrl: "/projects/emoji-counter-placeholder.png"
   }
 ];
 
