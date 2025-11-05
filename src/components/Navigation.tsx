@@ -98,7 +98,7 @@ export default function Navigation() {
           className="text-xl font-bold text-blue-600 cursor-pointer"
           onClick={() => handleNavClick('#home')}
         >
-          Rahul Kumar
+          Isha Singh
         </motion.div>
 
         {/* Desktop Navigation */}
@@ -285,9 +285,9 @@ export default function Navigation() {
               </div>
               <div className="flex justify-center space-x-4 mt-3">
                 {[
-                  { name: 'GitHub', href: 'https://github.com/R0ahulkd' },
-                  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/rahul734779/' },
-                  { name: 'Email', href: 'mailto:Rahulkumar201203@gmail.com' }
+                  { name: 'GitHub', href: 'https://github.com/isha1946' },
+                  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/isha-singh-8b7146389?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app' },
+                  { name: 'Email', href: 'mailto:ishasingh1946@gmail.com' }
                 ].map((social) => (
                   <motion.a
                     key={social.name}
