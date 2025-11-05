@@ -6,12 +6,12 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Rahul Kumar | Full-Stack Developer & AI Enthusiast",
-  description: "Portfolio of Rahul Kumar, an MCA candidate skilled in Full-Stack Web Development, AI Integration, and Data Science.",
-  keywords: "Rahul Kumar, Full-Stack Developer, AI Enthusiast, Web Developer, Portfolio, React, Next.js, Python, Java",
-  authors: [{ name: "Rahul Kumar" }],
+  title: "Isha Singh | Data Science Enthusiast & AI Learner",
+  description: "MCA Candidate at LPU | Passionate about extracting insights from data, building predictive models, and creating intelligent AI-driven solutions.",
+  keywords: "Isha Singh, Full-Stack Developer, AI Enthusiast, Web Developer, Portfolio, React, Next.js, Python, Java",
+  authors: [{ name: "Isha Singh" }],
   openGraph: {
-    title: "Rahul Kumar | Full-Stack Developer & AI Enthusiast",
+    title: "Isha Singh | Data Science Enthusiast & AI Learner",
     description: "Portfolio of Rahul Kumar, an MCA candidate skilled in Full-Stack Web Development, AI Integration, and Data Science.",
     type: "website",
     url: "https://yourportfolio.com", // Replace with your actual domain
