@@ -6,40 +6,10 @@ import { useRef, useState } from 'react';
 
 const skillsData = [
   { 
-    name: 'Java', 
-    category: 'Backend',
-    icon: '☕',
-    description: 'Building robust enterprise applications and backend systems'
-  },
-  { 
     name: 'Python', 
     category: 'Data Science',
     icon: '🐍',
     description: 'Data analysis, machine learning, and automation scripts'
-  },
-  { 
-    name: 'Spring Boot', 
-    category: 'Backend',
-    icon: '🌱',
-    description: 'Creating scalable microservices and REST APIs'
-  },
-  { 
-    name: 'React', 
-    category: 'Frontend',
-    icon: '⚛️',
-    description: 'Building interactive and responsive user interfaces'
-  },
-  { 
-    name: 'Next.js', 
-    category: 'Full Stack',
-    icon: '▲',
-    description: 'Server-rendered React applications with optimal performance'
-  },
-  { 
-    name: 'MySQL', 
-    category: 'Database',
-    icon: '🐬',
-    description: 'Designing and optimizing relational database systems'
   },
   { 
     name: 'Django', 
@@ -48,11 +18,23 @@ const skillsData = [
     description: 'Rapid development of secure web applications'
   },
   { 
-    name: 'OpenAI API', 
-    category: 'AI',
-    icon: '🧠',
-    description: 'Integrating AI capabilities into practical applications'
+    name: 'NumPy', 
+    category: 'Data Science',
+    icon: '📊',
+    description: 'Numerical computing and high-performance scientific operations'
   },
+  { 
+    name: 'Java', 
+    category: 'Backend',
+    icon: '☕',
+    description: 'Building robust enterprise applications and backend systems'
+  },
+  { 
+    name: 'MySQL', 
+    category: 'Database',
+    icon: '🐬',
+    description: 'Designing and optimizing relational database systems'
+  }
 ];
 
 export default function Skills() {
@@ -68,10 +50,8 @@ export default function Skills() {
   return (
     <section id="skills" ref={sectionRef} className="py-24 bg-gray-50 px-4 relative overflow-hidden">
       {/* Animated background elements */}
-  {/* Animated background elements */}
       <div className="absolute inset-0 opacity-[0.03] z-0">
         {[...Array(15)].map((_, i) => {
-          // Use index-based positioning for consistent SSR/client rendering
           const positions = [
             { left: 10, top: 20 }, { left: 85, top: 15 }, { left: 60, top: 80 },
             { left: 25, top: 60 }, { left: 75, top: 40 }, { left: 40, top: 25 },
@@ -85,9 +65,7 @@ export default function Skills() {
             <motion.div
               key={i}
               className="absolute text-4xl"
-              animate={{
-                rotate: [0, 360],
-              }}
+              animate={{ rotate: [0, 360] }}
               transition={{
                 duration: 20 + (i * 2),
                 repeat: Infinity,
@@ -119,9 +97,7 @@ export default function Skills() {
           </div>
 
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Technical <span className="text-blue-600">Stack</span></h2>
-          
           <div className="w-20 h-1 bg-blue-600 mx-auto mb-8" />
-          
           <p className="text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed">
             Technologies and tools I use to bring ideas to life and solve complex problems
           </p>
@@ -170,11 +146,7 @@ export default function Skills() {
             <motion.div
               key={skill.name}
               variants={{
-                hidden: { 
-                  opacity: 0,
-                  y: 30,
-                  rotateX: -90
-                },
+                hidden: { opacity: 0, y: 30, rotateX: -90 },
                 visible: {
                   opacity: 1,
                   y: 0,
@@ -191,46 +163,31 @@ export default function Skills() {
               }}
               className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 group relative overflow-hidden"
             >
-              {/* Hover effect background */}
               <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-gray-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               <div className="relative z-10 text-center">
-                {/* Skill Icon with animation */}
                 <motion.div 
                   className="text-4xl mb-4"
-                  whileHover={{ 
-                    scale: 1.2,
-                    rotate: 360,
-                    transition: { duration: 0.5 }
-                  }}
+                  whileHover={{ scale: 1.2, rotate: 360, transition: { duration: 0.5 } }}
                 >
                   {skill.icon}
                 </motion.div>
-                
-                {/* Skill Name */}
+
                 <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors">
                   {skill.name}
                 </h3>
-                
-                {/* Category */}
+
                 <span className="inline-block px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded-full mb-3">
                   {skill.category}
                 </span>
-                
-                {/* Description appears on hover */}
+
                 <motion.p 
                   className="text-sm text-gray-600 mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  initial={{ height: 0, opacity: 0 }}
-                  whileHover={{ 
-                    height: 'auto',
-                    opacity: 1
-                  }}
                 >
                   {skill.description}
                 </motion.p>
               </div>
 
-              {/* Subtle border animation on hover */}
               <motion.div 
                 className="absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-blue-200 transition-all duration-300"
                 initial={false}
@@ -239,7 +196,6 @@ export default function Skills() {
           ))}
         </motion.div>
 
-        {/* Call to action */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -250,14 +206,8 @@ export default function Skills() {
             Always exploring new technologies and frameworks to expand my toolkit
           </p>
           <motion.div
-            animate={{ 
-              scale: [1, 1.05, 1],
-            }}
-            transition={{ 
-              duration: 2,
-              repeat: Infinity,
-              repeatType: "reverse"
-            }}
+            animate={{ scale: [1, 1.05, 1] }}
+            transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
             className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-full text-sm font-medium"
           >
             <span>Currently learning: TensorFlow & Node.js</span>
