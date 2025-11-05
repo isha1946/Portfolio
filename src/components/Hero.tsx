@@ -31,7 +31,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-xl md:text-2xl text-gray-600 mb-8"
         >
-          Full-Stack Developer & AI Enthusiast
+          Data Science Enthusiast & AI Learner
         </motion.p>
         
         <motion.p
@@ -40,8 +40,8 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="text-lg text-gray-500 mb-10 max-w-2xl mx-auto"
         >
-          MCA Candidate at LPU | Passionate about crafting intelligent web experiences 
-          where robust code meets cutting-edge AI.
+          MCA Candidate at LPU | Passionate about extracting insights from data, building predictive models,
+          and creating intelligent AI-driven solutions.
         </motion.p>
         
         <motion.div
