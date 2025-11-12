@@ -10,7 +10,7 @@ export default function Hero() {
   };
 
   const downloadResume = () => {
-    window.open('https://drive.google.com/file/d/1k7w89d_NAtCMeL9R-36mah9qhVGi-zRy/view?usp=drive_link', '_blank');
+    window.open('https://drive.google.com/file/d/1WRQ_k5OPyTdRbx39jgsq-xEBN0-_QI_4/view?usp=sharing', '_blank');
   };
 
   return (
